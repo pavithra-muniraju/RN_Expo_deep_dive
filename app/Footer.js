@@ -1,13 +1,15 @@
+import { useRouter } from "expo-router";
 import { StyleSheet, Text, View, Platform, Dimensions, Image } from "react-native"
 
 const windowDimensions = Dimensions.get('window');
 const windowHeight = windowDimensions.height;
 const smallLogo = require("../assets/bethanys-pie-shop-logo_extra-4-black.png")
 const Footer = () => {
+    const router = useRouter()
     return(
         <View style={styles.footer}>
             <Image source={smallLogo} style={styles.logo} />
-            <Text style={styles.menu}>ABOUT</Text>
+            <Text style={styles.menu} onPress={() => {router.push('/About')}}>ABOUT</Text>
             <Text style={styles.menu}>NEWS</Text>
             <Text style={styles.menu}>BLOG</Text>
         </View>

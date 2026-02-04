@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
                 justifyContent: 'space-between',
                 marginLeft: 15,
                 marginRight: 15,
-                top: '-15%'
+                top: '-5%'
             },
             ios: {
                 justifyContent: 'space-between',
