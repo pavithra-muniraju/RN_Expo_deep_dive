@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 const Header = () => {
@@ -6,9 +6,11 @@ const Header = () => {
     const router = useRouter();
     return(
         <View style={styles.header}>
-            <Image source={logo} style={styles.logo}/>
-            <Text style={styles.menu} onPress={() => {router.replace("/About")}}>SHOP</Text>
-            <Text style={styles.menu}>CONTACT</Text>
+            <TouchableWithoutFeedback onPress={() => {router.replace("/")}}>
+                <Image source={logo} style={styles.logo}  />
+            </TouchableWithoutFeedback>            
+            <Text style={styles.menu} >SHOP</Text>
+            <Text style={styles.menu} onPress={() => {router.replace("/Contact")}}>CONTACT</Text>
             <Text style={styles.menu}>REGISTER</Text>
             <AntDesign style={styles.menu} name='user' size={24} color='white' />
             <Feather style={styles.menu} name='shopping-cart' size={24} color='white' />
@@ -30,7 +32,8 @@ const styles = StyleSheet.create({
         width: 95,
         height:30,
         marginRight: 5,
-        marginLeft: 10
+        marginLeft: 10,
+        cursor: 'pointer'
     },
     menu: {
         paddingLeft: 8,
