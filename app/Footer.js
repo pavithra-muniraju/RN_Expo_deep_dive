@@ -10,8 +10,9 @@ const Footer = () => {
         <View style={styles.footer}>
             <Image source={smallLogo} style={styles.logo} />
             <Text style={styles.menu} onPress={() => {router.push('/About')}}>ABOUT</Text>
-            <Text style={styles.menu}>NEWS</Text>
+            <Text style={styles.menu} onPress={() => {router.push('/News')}}>NEWS</Text>
             <Text style={styles.menu}>BLOG</Text>
+            <Text style={styles.menu}>YOUTUBE</Text>
         </View>
     )
 }
