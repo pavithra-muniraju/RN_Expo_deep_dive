@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import Header from "./Header";
 import Footer from "./Footer";
+import { BethanyProvider } from "./ContextPRovider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -27,11 +28,14 @@ const Layout = () => {
         return null
     }
     return(
-        <SafeAreaView>
+        <BethanyProvider>
+            <SafeAreaView>
             <Header />
             <Slot />
             <Footer />
         </SafeAreaView>
+        </BethanyProvider>
+        
     )
 }
 
