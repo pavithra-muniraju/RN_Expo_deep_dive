@@ -19,7 +19,7 @@ const Header = () => {
             <TouchableWithoutFeedback onPress={() => {router.replace("/")}}>
                 <Image source={logo} style={styles.logo}  />
             </TouchableWithoutFeedback>            
-            <Text style={styles.menu} >SHOP</Text>
+            <Text style={styles.menu} onPress={() => {router.replace("/Shop")}}>SHOP</Text>
             <Text style={styles.menu} onPress={() => {router.replace("/Contact")}}>CONTACT</Text>
             <Text style={styles.menu} onPress={() => {router.replace("/Register")}}>REGISTER</Text>
             <Text style={styles.menu} onPress={toggleLogin}>{display}</Text>
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         paddingLeft: 8,
         paddingRight: 8,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        cursor: 'pointer'
     }
 })

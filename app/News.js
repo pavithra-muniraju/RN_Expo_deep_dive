@@ -1,6 +1,6 @@
 import { FlatList, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-import {grabAllStories} from './newsData';
+import {grabAllStories} from './Data/newsData';
 import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 

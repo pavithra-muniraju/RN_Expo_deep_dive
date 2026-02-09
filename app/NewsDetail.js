@@ -1,5 +1,5 @@
 import { Image, Platform, StyleSheet, Text, View } from "react-native"
-import { grabOneStory } from "./newsData";
+import { grabOneStory } from "./Data/newsData";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 
