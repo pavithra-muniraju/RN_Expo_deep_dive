@@ -1,9 +1,14 @@
 import { useRouter } from "expo-router";
 import { StyleSheet, Text, View, Platform, Dimensions, Image } from "react-native"
-
+import * as WebBrowser from 'expo-web-browser';
 const windowDimensions = Dimensions.get('window');
 const windowHeight = windowDimensions.height;
-const smallLogo = require("../assets/bethanys-pie-shop-logo_extra-4-black.png")
+const smallLogo = require("../assets/bethanys-pie-shop-logo_extra-4-black.png");
+
+// cn be use dto visit any external link
+const youtube = () => {
+    WebBrowser.openBrowserAsync('https://www.youtube.com/@pluralsight');    
+}
 const Footer = () => {
     const router = useRouter()
     return(
@@ -11,8 +16,8 @@ const Footer = () => {
             <Image source={smallLogo} style={styles.logo} />
             <Text style={styles.menu} onPress={() => {router.push('/About')}}>ABOUT</Text>
             <Text style={styles.menu} onPress={() => {router.push('/News')}}>NEWS</Text>
-            <Text style={styles.menu}>BLOG</Text>
-            <Text style={styles.menu}>YOUTUBE</Text>
+            <Text style={styles.menu} onPress={() => {router.push('/Blog')}}>BLOG</Text>
+            <Text style={styles.menu} onPress={youtube}>YOUTUBE</Text>
         </View>
     )
 }
