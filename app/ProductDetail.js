@@ -1,13 +1,16 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Dimensions, Image, Platform, ScrollView, StyleSheet, Text, View } from "react-native";
 import { grabOneProduct } from "./Data/shopData";
+import { BethanyContext } from "./ContextPRovider";
 
 const windowDimensions = Dimensions.get('window').height
 
 const ProductDetail = () => {
     const router = useRouter();
     const [product, setProduct] = useState({});
+
+    const { addToCart } = useContext(BethanyContext);
 
     const { selectedProduct } = useLocalSearchParams()
     useEffect(() => {
@@ -21,7 +24,9 @@ const ProductDetail = () => {
             <ScrollView>
                 <Image source={product.productImage} style={styles.productImage} />
                 <View style={styles.addButton}>
-                    <Text style={styles.addText}> + ADD TO CART        </Text>
+                    <Text style={styles.addText} onPress={() => {
+                        addToCart(product.productId)
+                    }}> + ADD TO CART </Text>
                 </View>
 
                 <View style={styles.product}>
@@ -29,7 +34,7 @@ const ProductDetail = () => {
                     <Text style={styles.productName}>Rs. {product.productPrice}</Text>
                 </View>
                 <Text style={styles.productDescription}>{product.productDescription}</Text>
-                <Text style={styles.backbutton} onPress={() => {router.back()}}>GO BACK TO ALL PRODUCTS</Text>
+                <Text style={styles.backbutton} onPress={() => { router.back() }}>GO BACK TO ALL PRODUCTS</Text>
             </ScrollView>
 
 
@@ -67,18 +72,18 @@ const styles = StyleSheet.create({
     },
     addText: {
         fontWeight: '700',
-    fontSize: 16,
+        fontSize: 16,
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center'
     },
     product: {
-        flexDirection: 'row',        
+        flexDirection: 'row',
         paddingHorizontal: 10,
-        ...Platform.select( {
+        ...Platform.select({
             android: {
 
-        justifyContent: 'space-between',
+                justifyContent: 'space-between',
             },
             default: {
                 justifyContent: 'space-evenly'
@@ -94,11 +99,11 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 10
     },
-        backbutton: {
+    backbutton: {
         textAlign: 'center',
         paddingVertical: 10,
         fontWeight: '900',
         fontSize: 16
-    
+
     }
 })

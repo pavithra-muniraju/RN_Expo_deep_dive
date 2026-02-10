@@ -26,8 +26,8 @@ const Home = () => {
             <Text style={styles.pageTitle}>Pies of the Week</Text>
             <Text style={styles.pageText}>Enjoy a weekly selection of our favorite pies</Text>
             <View style={styles.pieRow}>
-                <PieDisplay pieImage={pieA} product='classic apple pie' />
-                <PieDisplay pieImage={pieB} product='pumpkin pie' />
+                <PieDisplay pieImage={pieA} product='classic apple pie' productId='CP-01' />
+                <PieDisplay pieImage={pieB} product='Classic pumpkin pie' productId='CP-02' />
             </View>
         </View>
     );

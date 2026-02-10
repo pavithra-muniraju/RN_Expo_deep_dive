@@ -1,10 +1,14 @@
 import { useRouter } from "expo-router";
+import { useContext } from "react";
 import { Image, TouchableOpacity, Text, View, Platform, StyleSheet } from "react-native"
+import { BethanyContext } from "../app/ContextPRovider";
 
 const ShopItem = ({ productId, productName, productImage, productPrice }) => {
     const router = useRouter();
-    const addToCart = () => {
+    const {addToCart} = useContext(BethanyContext);
 
+    const addToCartItems = () => {
+        addToCart(productId);
     }
 
     return (
@@ -16,7 +20,7 @@ const ShopItem = ({ productId, productName, productImage, productPrice }) => {
                 })
             }}>
                 <Image source={productImage} style={styles.image} />
-                <Text style={styles.button} onPress={addToCart}>+ Add to Cart</Text>
+                <Text style={styles.button} onPress={addToCartItems}>+ Add to Cart</Text>
                 <View style={styles.product}>
                     <Text style={styles.productInfo}>{productName}</Text>
                     <Text style={styles.productInfo}>Rs. {productPrice}</Text>

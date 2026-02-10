@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { 
     Image, 
     View, 
@@ -6,14 +7,19 @@ import {
     Dimensions, 
     Platform 
 } from 'react-native';
+import { BethanyContext } from '../app/ContextPRovider';
 
 const windowDimensions = Dimensions.get('window');
 const winWidth = windowDimensions.width - 700 / 3 ;
 const computerImagesWidth = winWidth / 2;
 const computerImagesHeight = computerImagesWidth - 215;
 
-const PieDisplay = ({pieImage, product }) => {
+const PieDisplay = ({pieImage, product, productId }) => {
 
+    const {addToCart} = useContext(BethanyContext)
+    const addToCartItem = () => {
+        addToCart(productId)
+    }
     return(
         <View style={styles.container}>
             <Image
@@ -21,7 +27,7 @@ const PieDisplay = ({pieImage, product }) => {
                 style={styles.pieStyle}
             />
             <View style={styles.addButton}>
-                <Text style={styles.addText}>+ ADD TO CART</Text>
+                <Text style={styles.addText} onPress={addToCartItem} >+ ADD TO CART</Text>
             </View>
             <View style={styles.product}>
                 <Text style={styles.productText}>{product}</Text>
