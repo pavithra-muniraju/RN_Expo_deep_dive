@@ -16,7 +16,7 @@ const Products = [
     {
         productId: 'CP-03',
         productName: 'Classic Walnut Pie',
-        productImage: require('../../assets/shutterstock_1528835303.jpg'),
+        productImage: require('../../assets/pexels-rdne-stock-project-7563553.jpg'),
         productDescription: `We use locally sources walnuts to make a unique twist on an American favorite. If you hav enever tasted Walnut Pie you are in for a treat`,
         productPrice: 25.85,   
     },

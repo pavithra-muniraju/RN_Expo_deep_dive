@@ -12,7 +12,7 @@ const Home = () => {
     const logoMark = require('../assets/bethanys-pie-shop-logo_logomark.png');
 
     const pieA = require('../assets/shutterstock_583548499.jpg');
-    const pieB = require('../assets/shutterstock_710266606.jpg');
+    const pieB = require('../assets/pexels-engin-akyurt-1437267.jpg');
     return (
         <View style={styles.container}>
             <Image
